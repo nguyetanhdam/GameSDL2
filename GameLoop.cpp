@@ -4,6 +4,12 @@ GameLoop::GameLoop()
 {
 	window = NULL;
 	renderer = NULL;
+	GameState = false;
+}
+
+bool GameLoop::getGameState()
+{
+	return GameState;
 }
 
 void GameLoop::Intialize()
@@ -16,6 +22,7 @@ void GameLoop::Intialize()
 		if (renderer)
 		{
 			cout << "Succeeded!" << endl;
+			GameState = true;
 		}
 		else
 		{
@@ -25,6 +32,23 @@ void GameLoop::Intialize()
 	else
 	{
 		cout << "indow not created!" << endl;
+	}
+}
+
+void GameLoop::Event()
+{
+	SDL_PollEvent(&event1);
+	if (event1.type == SDL_QUIT)
+	{
+		GameState = false;
+	}
+	if (event1.type == SDL_MOUSEMOTION)
+	{
+		cout << event1.motion.x << " " << event1.motion.y << endl;
+	}
+	if (event1.type == SDL_MOUSEBUTTONDOWN)
+	{
+		cout << "Pressed" << endl;
 	}
 }
 
