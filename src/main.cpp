@@ -219,7 +219,6 @@ int main(int argc, char* argv[]) {
     SDL_Renderer* renderer;
     initSDL(window, renderer);
 
-    // Your code here
     SDL_Event e;
 
     bgImg = loadTexture(renderer, "res/img/bg.jpg");
@@ -328,7 +327,6 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer) {
     //   SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP);
     if (window == nullptr) logSDLError(std::cout, "CreateWindow", true);
 
-
     //Khi thông thường chạy với môi trường bình thường ở nhà
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | 
                                               SDL_RENDERER_PRESENTVSYNC);
@@ -378,5 +376,3 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, string path) {
 
     return newTexture;
 }
-
-//**************************************************************
